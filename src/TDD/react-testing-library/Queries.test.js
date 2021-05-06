@@ -77,3 +77,21 @@ test('ect', () => {
         normalizer: getDefaultNormalizer({ trim: false, collapseWhitespace: false })
     });
 });
+
+test('debug', () => {
+    render(<Queries />);
+
+    // document 전체를 debug
+    screen.debug();
+
+    // 특정 요소를 debug 
+    // 단일 요소 뿐 아니라 다중 요소도 debug 가능
+    screen.debug(screen.getAllByText(/e/i));
+
+    // testing-playground에서 로그를 볼 수 있다.
+    screen.logTestingPlaygroundURL();
+
+    // 단일 요소에 대해서도 로그를 볼 수 있다.
+    // debug처럼 다중 요소를 파라미터로 넘길 순 없다.
+    screen.logTestingPlaygroundURL(screen.getByText(/hello/i));
+});
