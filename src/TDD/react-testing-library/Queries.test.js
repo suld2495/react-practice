@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen, getDefaultNormalizer } from '@testing-library/react';
 import Queries from './Queries';
 
