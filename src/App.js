@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import CounterAttack from './Hook/useEffect/CounterAttack';
-import Info from './Hook/useEffect/Info';
-import Counter from './Hook/useState/Counter';
+import Counter from './Hook/useReducer/Counter';
+import Info from './Hook/useReducer/Info';
 import IterationSample from './TIP/반복처리/IterationSample';
 
 function App() {  
@@ -9,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <button onClick={() => setVisible(!visible)}>버튼</button>
-      {visible && <CounterAttack />}
+      {visible && <Info />}
     </div>
   );
 }

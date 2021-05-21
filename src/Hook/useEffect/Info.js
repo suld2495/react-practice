@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 const Info = () => {
+    let a = {};
     const [name, setName] = useState('');
     const [nickname, setNickname] = useState('');
     const onChangeName = e => setName(e.target.value);
@@ -34,10 +35,18 @@ const Info = () => {
         }
     }, [nickname]);
 
+    useEffect(() => {
+        console.log('name1은 ' + name);
+        return () => {
+            console.log('name은 ' + name);
+        }
+    }, [nickname, name]);
+
     return (
         <div>
             <input value={name} onChange={onChangeName} />
             <input value={nickname} onChange={onChangeNickName} />
+            <button onClick={() => a['a'] = 2}>안녕?</button>
             <p>나의 이름은 <b>{name}</b>입니다.</p>
             <p>나의 별명은 <b>{nickname}</b>입니다.</p>
         </div>
