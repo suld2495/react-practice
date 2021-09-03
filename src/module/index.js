@@ -1,8 +1,10 @@
 import { createStore, combineReducers } from 'redux';
-import vanillaAction from './vanilla-module';
+// import vanillaAction from './vanilla-module';
+// import reduxActions from './redux-actions-module';
+import typesafeActions from './typesafe-actions-module';
 
 const rootReducer = combineReducers({
-  vanillaAction
+  typesafeActions
 });
 
 const store = createStore(rootReducer);

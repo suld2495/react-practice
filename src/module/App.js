@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { increase } from './vanilla-module';
+// import { increase } from './vanilla-module';
+import { decrease, increase } from './typesafe-actions-module';
 
 function App() {
   const dispatch = useDispatch();
-  const count = useSelector(({ vanillaAction }) => vanillaAction.count);
+  const count = useSelector(({ typesafeActions }) => typesafeActions.count);
 
   useEffect(() => {
-    dispatch(increase(2));
+    dispatch(increase(12));
   }, [dispatch])
 
   return (

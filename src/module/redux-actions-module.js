@@ -1,10 +1,8 @@
+import { createAction,  } from "redux-actions";
+
 const INCREASE = 'INCREASE';
 
-export const increase = function() {
-  return {
-    type: INCREASE
-  }
-}
+export const increase = createAction(INCREASE);
 
 const initialState = {
   count: 1
@@ -15,7 +13,7 @@ const reducer = function(state = initialState, action) {
     case INCREASE: 
       return {
         ...state,
-        count: state.count + 1
+        count: state.count + action.payload
       }
     default:
       return state
