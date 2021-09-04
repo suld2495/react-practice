@@ -1,12 +1,25 @@
-import { createStore, combineReducers } from 'redux';
-// import vanillaAction from './vanilla-module';
-// import reduxActions from './redux-actions-module';
-import typesafeActions from './typesafe-actions-module';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import { all } from 'redux-saga/effects';
+import vanillaAction from './vanilla-module';
+import reduxActions, { reduxActionsSaga } from './redux-actions-module';
+import typesafeActions, { typesafeActionsSaga } from './typesafe-actions-module';
+
+const sagaMiddleware = createSagaMiddleware();
 
 const rootReducer = combineReducers({
-  typesafeActions
+  reduxActions
 });
 
-const store = createStore(rootReducer);
+const store = createStore(
+  rootReducer,
+  applyMiddleware(sagaMiddleware)
+);
+
+function* rootSaga() {
+  yield all([reduxActionsSaga()]);
+}
+
+sagaMiddleware.run(rootSaga);
 
 export default store;

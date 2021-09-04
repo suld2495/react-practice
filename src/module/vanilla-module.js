@@ -11,7 +11,7 @@ const initialState = {
   count: 1
 };
 
-const reducer = function(state = initialState, action) {
+const reducer = function(state, action) {
   switch(action.type) {
     case INCREASE: 
       return {
