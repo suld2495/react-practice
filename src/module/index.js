@@ -8,7 +8,7 @@ import typesafeActions, { typesafeActionsSaga } from './typesafe-actions-module'
 const sagaMiddleware = createSagaMiddleware();
 
 const rootReducer = combineReducers({
-  reduxActions
+  typesafeActions
 });
 
 const store = createStore(
@@ -17,7 +17,7 @@ const store = createStore(
 );
 
 function* rootSaga() {
-  yield all([reduxActionsSaga()]);
+  yield all([typesafeActionsSaga()]);
 }
 
 sagaMiddleware.run(rootSaga);

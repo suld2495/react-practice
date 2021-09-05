@@ -1,22 +1,22 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import { increase } from './vanilla-module';
-import { increase, fetchList } from './redux-actions-module';
-// import { decrease, increase, fetchListAsync } from './typesafe-actions-module';
+// import { increase, fetchList } from './redux-actions-module';
+import { decrease, increase, fetchListAsync } from './typesafe-actions-module';
 
 function App() {
   const dispatch = useDispatch();
-  const count = useSelector(({ reduxActions }) => reduxActions.reducerA.count);
-  const haha = useSelector(({ reduxActions }) => reduxActions.reducerA.haha);
-  const reduxA = useSelector(({ reduxActions }) => reduxActions.reducerA);
+  const count = useSelector(({ typesafeActions }) => typesafeActions.count);
+  const haha = useSelector(({ typesafeActions }) => typesafeActions.haha);
+  const reduxA = useSelector(({ typesafeActions }) => typesafeActions);
 
   useEffect(() => {
-    dispatch(increase(1));
+    dispatch(increase({dasffasdd: 1}));
   }, [dispatch])
 
   return (
     <>
-      <div>카운트 : { haha }</div>      
+      <div>카운트 : { count }</div>      
     </>
   );
 }
